@@ -1,0 +1,9 @@
+0C	^\S+\.di?\(\d+\): Error: 
+0E	^\S+\.di?\(\d+\): Warning: 
+06	^\S+\.di?\(\d+\): Deprecation: 
+0D	^\S+\.di?\(\d+\): 
+08	OPTLINK \(R\) for Win32
+08	^Copyright \(C\) Digital Mars
+08	^http://www\.digitalmars\.com/
+0D	^OPTLINK : Error \d+:
+06	deprecation
