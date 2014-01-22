@@ -1,7 +1,8 @@
-0C	^\S+\.di?\(\d+\): Error: 
-0E	^\S+\.di?\(\d+\): Warning: 
-06	^\S+\.di?\(\d+\): Deprecation: 
-0D	^\S+\.di?\(\d+\): 
+00	^(?P<file>\S+\.di?)\((?P<line>\d+)(,(?P<column>\d+))?\): (?P<message>.*)
+0C	^\S+\.di?\(\d+(,\d+)?\): Error: 
+0E	^\S+\.di?\(\d+(,\d+)?\): Warning: 
+06	^\S+\.di?\(\d+(,\d+)?\): Deprecation: 
+0D	^\S+\.di?\(\d+(,\d+)?\): 
 08	OPTLINK \(R\) for Win32
 08	^Copyright \(C\) Digital Mars
 08	^http://www\.digitalmars\.com/

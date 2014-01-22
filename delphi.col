@@ -1,7 +1,7 @@
 08	Delphi for Win32 compiler
 08	^Copyright
-02	(^|\r)\d+ lines, \d+\.\d+ seconds
-03	(^|\r)(.*\(\d+\) )?Hint: 
-0E	(^|\r)(.*\(\d+\) )?Warning: 
-0C	(^|\r)(.*\(\d+\) )?Error: 
-0D	(^|\r)(.*\(\d+\) )?Fatal: 
+02	^\d+ lines, \d+\.\d+ seconds
+03	^(.*\(\d+\) )?Hint: 
+0E	^(.*\(\d+\) )?Warning: 
+0C	^(.*\(\d+\) )?Error: 
+0D	^(.*\(\d+\) )?Fatal: 
