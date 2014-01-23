@@ -1,5 +1,6 @@
 00	^(?P<file>\S+\.di?)\((?P<line>\d+)(,(?P<column>\d+))?\): (?P<message>.*)
 00	^\S+\.di?\(\d+(,\d+)?\): Error: undefined identifier (?P<id>.*)$
+00	^\S+\.di?\(\d+(,\d+)?\): Error: undefined identifier (?P<id>.*), did you mean 
 00	^\S+\.di?\(\d+(,\d+)?\): Error: '(?P<id>.*)' is not defined, perhaps you need to import 
 00	^\S+\.di?\(\d+(,\d+)?\): Error: no property '(?P<id>.*)' for type 
 0C	^\S+\.di?\(\d+(,\d+)?\): Error: 

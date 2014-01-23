@@ -18,6 +18,9 @@ module colorout;
 	  each output line. Any named groups are wrritten
 	  as objects (one per line) to the file specified
 	  by the --json command-line parameter.
+	- If a matched rule has a named group matching
+	  the NAME of a --trigger parameter, the
+	  corresponding PROGRAM is ran at the end.
 ++/
 
 import std.c.windows.windows;
@@ -36,14 +39,16 @@ import ae.utils.json;
 int main(string[] args)
 {
 	enforce(args.length >= 3,
-		"Usage: " ~ args[0] ~ " RULES.col [--maxlines=N] [--json=FILENAME] PROGRAM [ARGS...]");
+		"Usage: " ~ args[0] ~ " RULES.col [--maxlines=N] [--json=FILENAME] [--trigger NAME=PROGRAM] PROGRAM [ARGS...]");
 	
 	int lines = int.max;
 	string jsonFileName;
+	string[string] triggers;
 	getopt(args,
 		config.stopOnFirstNonOption,
 		"maxlines", &lines,
 		"json", &jsonFileName,
+		"trigger", (string t, string param) { triggers[param.split("=")[0]] = param.split("=")[1]; },
 	);
 
 	struct Rule
@@ -68,6 +73,8 @@ int main(string[] args)
 	File json;
 	if (jsonFileName)
 		json.open(jsonFileName, "wb");
+
+	bool[string] matchedTriggers;
 
 	foreach (line; p.readEnd.byLine())
 	{
@@ -103,6 +110,10 @@ int main(string[] args)
 		if (jsonFileName && namedCaptures)
 			json.writeln(namedCaptures.toJson());
 
+		foreach (k, v; namedCaptures)
+			if (k in triggers)
+				matchedTriggers[triggers[k]] = true;
+
 		if (print)
 		{
 			lines--;
@@ -117,5 +128,13 @@ int main(string[] args)
 	if (lines < 0)
 		writefln("( ... %d lines omitted ... )", -lines);
 
-	return wait(pid);
+	if (jsonFileName)
+		json.close();
+
+	auto status = wait(pid);
+
+	foreach (program; matchedTriggers.byKey)
+		spawnShell(program).wait();
+
+	return status;
 }
