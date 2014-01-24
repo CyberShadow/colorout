@@ -1,0 +1,9 @@
+08	^Free Pascal Compiler 
+08	^Copyright (c) 
+02	^\d+ lines compiled, \d+\.\d+ sec
+00	^(?P<file>\S+)\((?P<line>\d+),(?P<column>\d+)\) (?P<message>.+)
+03	^(.*\(\d+,\d+\) )?Note: 
+03	^(.*\(\d+,\d+\) )?Hint: 
+0E	^(.*\(\d+,\d+\) )?Warning: 
+0C	^(.*\(\d+,\d+\) )?Error: 
+0D	^(.*\(\d+,\d+\) )?Fatal: 
