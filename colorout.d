@@ -76,9 +76,9 @@ int main(string[] args)
 
 	bool[string] matchedTriggers;
 
-	foreach (line; p.readEnd.byLine())
+	foreach (lineEOL; p.readEnd.byLine(KeepTerminator.yes))
 	{
-		line = line.chomp();
+		auto line = lineEOL.chomp();
 		ushort attr = 7;
 		char[][string] namedCaptures;
 		bool print = true;
@@ -120,7 +120,7 @@ int main(string[] args)
 			if (lines >= 0)
 			{
 				SetConsoleTextAttribute(h, attr);
-				stderr.writeln(line);
+				stderr.rawWrite(lineEOL);
 				SetConsoleTextAttribute(h, 7);
 			}
 		}
