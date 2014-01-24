@@ -74,9 +74,32 @@ int main(string[] args)
 	if (jsonFileName)
 		json.open(jsonFileName, "wb");
 
+	char[] readRawLine()
+	{
+		static ubyte[] buf;
+		static bool isEOL(ubyte c) { return c == 13 || c == 10; }
+		while (!buf.any!isEOL)
+		{
+			static ubyte[1024] readBuf;
+			uint bytesRead;
+			if (!ReadFile(p.readEnd.handle, readBuf.ptr, readBuf.length, &bytesRead, null) || bytesRead==0)
+				break;
+			buf ~= readBuf[0..bytesRead];
+		}
+		auto eol = buf.countUntil!isEOL;
+		if (eol < 0)
+			eol = buf.length;
+		while (eol < buf.length && isEOL(buf[eol]))
+			eol++;
+		auto result = buf[0..eol];
+		buf = buf[eol..$];
+		return cast(char[])result;
+	}
+
 	bool[string] matchedTriggers;
 
-	foreach (lineEOL; p.readEnd.byLine(KeepTerminator.yes))
+	char[] lineEOL;
+	while ((lineEOL = readRawLine()).length)
 	{
 		auto line = lineEOL.chomp();
 		ushort attr = 7;
