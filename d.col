@@ -3,6 +3,7 @@
 00	^\S+\.di?\(\d+(,\d+)?\): Error: undefined identifier (?P<id>.*), did you mean 
 00	^\S+\.di?\(\d+(,\d+)?\): Error: '(?P<id>.*)' is not defined, perhaps you need to import 
 00	^\S+\.di?\(\d+(,\d+)?\): Error: no property '(?P<id>.*)' for type 
+00	^\S+\.di?\(\d+(,\d+)?\): Error: template instance .* template '(?P<id>.*)' is not defined$
 0C	^\S+\.di?\(\d+(,\d+)?\): Error: 
 0E	^\S+\.di?\(\d+(,\d+)?\): Warning: 
 06	^\S+\.di?\(\d+(,\d+)?\): Deprecation: 
