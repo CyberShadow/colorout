@@ -1,13 +1,13 @@
-00	^(?P<file>\S+\.di?)\((?P<line>\d+)(,(?P<column>\d+))?\): (?P<message>.*)
-00	^\S+\.di?\(\d+(,\d+)?\): Error: undefined identifier (?P<id>.*)$
-00	^\S+\.di?\(\d+(,\d+)?\): Error: undefined identifier (?P<id>.*), did you mean 
-00	^\S+\.di?\(\d+(,\d+)?\): Error: '(?P<id>.*)' is not defined, perhaps you need to import 
-00	^\S+\.di?\(\d+(,\d+)?\): Error: no property '(?P<id>.*)' for type 
-00	^\S+\.di?\(\d+(,\d+)?\): Error: template instance .* template '(?P<id>.*)' is not defined$
-0C	^\S+\.di?\(\d+(,\d+)?\): Error: 
-0E	^\S+\.di?\(\d+(,\d+)?\): Warning: 
-06	^\S+\.di?\(\d+(,\d+)?\): Deprecation: 
-0D	^\S+\.di?\(\d+(,\d+)?\): 
+00	^(?P<file>\S+)\((?P<line>\d+)(,(?P<column>\d+))?\): (?P<message>.*)
+00	^\S+\(\d+(,\d+)?\): Error: undefined identifier (?P<id>\S*)($|, did you mean )
+00	^\S+\(\d+(,\d+)?\): Error: '(?P<id>.*)' is not defined, perhaps you need to import 
+00	^\S+\(\d+(,\d+)?\): Error: no property '(?P<id>.*)' for type 
+00	^\S+\(\d+(,\d+)?\): Error: template instance .* template '(?P<id>.*)' is not defined($|, did you mean )
+00	^\S+\(\d+(,\d+)?\): Error: template .*\.(?P<id>[^\.]+) cannot deduce function from argument types
+0C	^\S+\(\d+(,\d+)?\): Error: 
+0E	^\S+\(\d+(,\d+)?\): Warning: 
+06	^\S+\(\d+(,\d+)?\): Deprecation: 
+0D	^\S+\(\d+(,\d+)?\): 
 08	OPTLINK \(R\) for Win32
 08	^Copyright \(C\) Digital Mars
 08	^http://www\.digitalmars\.com/
