@@ -1,7 +1,7 @@
 08	Delphi for Win32 compiler
 08	^Copyright
 02	^\d+ lines, \d+\.\d+ seconds
-00	^(?P<file>\S+)\((?P<line>\d+)\) (?P<message>.+)
+00	^(?P<file>\S+)\((?P<line>\d+)\) (?P<message>\S.+)
 03	^(.*\(\d+\) )?Hint: 
 0E	^(.*\(\d+\) )?Warning: 
 0C	^(.*\(\d+\) )?Error: 
