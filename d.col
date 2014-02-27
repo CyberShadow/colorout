@@ -12,4 +12,5 @@
 08	^Copyright \(C\) Digital Mars
 08	^http://www\.digitalmars\.com/
 0D	^OPTLINK : Error \d+:
+0C	^LINK : fatal error
 06	deprecation
