@@ -1,0 +1,4 @@
+00	^(?P<file>\S+)\((?P<line>\d+)\) : (?P<message>.*)$
+0D	\S+\(\d+\) : fatal error 
+0C	\S+\(\d+\) : error 
+0E	\S+\(\d+\) : warning 
