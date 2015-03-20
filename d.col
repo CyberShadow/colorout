@@ -11,6 +11,7 @@
 08	OPTLINK \(R\) for Win32
 08	^Copyright \(C\) Digital Mars
 08	^http://www\.digitalmars\.com/
+08	^LINK : .* not found or not built by the last incremental link; performing full link$
 0D	^OPTLINK : Error \d+:
 0C	^LINK : fatal error
 06	deprecation
