@@ -80,9 +80,9 @@ int main(string[] args)
 		static bool isEOL(ubyte c) { return c == 13 || c == 10; }
 		while (!buf.any!isEOL)
 		{
-			static ubyte[1024] readBuf;
+			static ubyte[1] readBuf;
 			uint bytesRead;
-			if (!ReadFile(p.readEnd.handle, readBuf.ptr, readBuf.length, &bytesRead, null) || bytesRead==0)
+			if (!ReadFile(p.readEnd.windowsHandle, readBuf.ptr, readBuf.length, &bytesRead, null) || bytesRead==0)
 				break;
 			buf ~= readBuf[0..bytesRead];
 		}
